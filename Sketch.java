@@ -29,8 +29,8 @@ public class Sketch extends PApplet {
     drawSun(350, 0, 100, 155, 255, 55);
     drawSun(100, 150, 70, 180, 100, 80);
     drawSun(300, 125, 90, 65, 175, 69);
-    drawSun(375, 250, 251, 100, 100, 110);
-    drawSun(50, 280, 200, 200, 200, 255);
+    drawSun(375, 250, 20, 100, 100, 110);
+    System.out.println(drawSun(50, 280, 130, 200, 200, 255));
     
 
     // draw ground
@@ -66,16 +66,12 @@ public class Sketch extends PApplet {
   * @param sunDiameter is the diameter of the sun
   */
   
-  public void drawSun(float sunX, float sunY, float sunDiameter, float sunR, float sunG,float sunB) {
-     // yellow sun
+  public int drawSun(float sunX, float sunY, float sunDiameter, float sunR, float sunG,float sunB) {
+
      fill(sunR, sunG, sunB);
      ellipse(sunX, sunY, sunDiameter, sunDiameter);
+     return (int) sunX; 
 
-    // return sun to middle if diameter is 250
-     if (sunDiameter == 250) {
-      drawSun(200, 200, 250, 255, 255, 0);
-      return;
-    }
   }
   
   /**
@@ -90,23 +86,17 @@ public class Sketch extends PApplet {
   
   public void drawHouse(float houseX, float houseY, float houseLength, float houseWidth, float houseRed, float houseGreen, float houseBlue) {
 
-      // tan rectangle  
+      // base of house
       fill(houseRed, houseGreen, houseBlue);
       rect(houseX, houseY, houseLength, houseWidth);
   
-      // red triangle roof
+      // triangle roof
       fill(houseRed + 45, houseGreen - 129, houseBlue - 89);
       triangle(houseX - 15, houseY, houseX + 105, houseY - 80, houseX + 225, houseY);
   
-      // orange door 
+      // door 
       fill(houseRed + 45, houseGreen + 24, houseBlue - 140);
       rect(houseX + 85, houseY + 110, houseLength - 165, houseWidth - 110);
   
     }
   }
-
-   
-    
-    
-
-
